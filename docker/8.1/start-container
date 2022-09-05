@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER sail
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+
+if [ ! -d /root/.ssh ]; then
+    mkdir /root/.ssh
+fi
+if [ ! -d /home/sail/.ssh ]; then
+    mkdir /home/sail/.ssh
+fi
+echo "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
+echo "Host github.com\n\tStrictHostKeyChecking no\n" > /home/sail/.ssh/config
+ssh-keyscan github.com >> /root/.ssh/known_hosts
+ssh-keyscan github.com >> /home/sail/.ssh/known_hosts
+# Copy SSH key from ENV and unset var
+if [ ! -z "$SSH_PRIVATE" ]; then
+    echo $SSH_PRIVATE > /root/.ssh/id_rsa
+    chmod 600 /root/.ssh/id_rsa
+
+    echo $SSH_PRIVATE > /home/sail/.ssh/id_rsa
+    chmod 600 /home/sail/.ssh/id_rsa
+
+    export $SSH_PRIVATE=null
+fi
+
+if [ $# -gt 0 ]; then
+    exec gosu $WWWUSER "$@"
+else
+    exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+fi
