@@ -44,12 +44,12 @@ jobs:
 
       # Install PHP dependencies
       - name: Install Composer dependencies
-        run: composer require "illuminate/support:${{ matrix.laravel }}"
+        run: composer require -W "illuminate/support:${{ matrix.laravel }}"
 
       # Install legacy factories for Laravel 8
       - name: Install legacy factories for Laravel
         if: ${{ matrix.laravel == '8.*' }}
-        run: composer require laravel/legacy-factories
+        run: composer require -W laravel/legacy-factories
 
       - name: Remove Composer auth
         run: rm -f $GITHUB_WORKSPACE/auth.json
