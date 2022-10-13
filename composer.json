@@ -18,22 +18,22 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "guzzlehttp/guzzle": "^7.2",
-        "joy/nova-api": "^1.0",
-        "laravel/framework": "^9.19",
+        "guzzlehttp/guzzle": "7.5.0",
+        "joy/nova-api": "1.0.0",
+        "laravel/framework": "9.27.0",
         "laravel/nova": "dev-main as 4.8",
-        "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/sanctum": "3.0.1",
+        "laravel/tinker": "2.7.2"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
-        "henzeb/composer-link": "^0.0.3@alpha",
-        "laravel/pint": "^1.0",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "fakerphp/faker": "1.20.0",
+        "henzeb/composer-link": "0.0.3-alpha",
+        "laravel/pint": "1.1.2",
+        "laravel/sail": "1.15.4",
+        "mockery/mockery": "1.5.0",
+        "nunomaduro/collision": "6.3.0",
+        "phpunit/phpunit": "9.5.24",
+        "spatie/laravel-ignition": "1.4.1"
     },
     "autoload": {
         "psr-4": {
