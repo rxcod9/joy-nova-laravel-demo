@@ -20,7 +20,7 @@
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "joy/nova-api": "^1.0",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "9.37.0",
         "laravel/nova": "dev-main as 4.8",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
