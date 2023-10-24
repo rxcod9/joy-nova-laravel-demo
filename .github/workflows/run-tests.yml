@@ -37,7 +37,7 @@ jobs:
           coverage: none
 
       # Configure NPM
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
 
       - name: Add Composer auth
         run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
